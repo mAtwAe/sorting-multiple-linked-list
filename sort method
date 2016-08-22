@@ -1,0 +1,39 @@
+public <E extends Comparable<E>> void sortAscend(MyLinkedList<E> o,MyLinkedList<E> x,MyLinkedList<E> z,MyLinkedList<E> v){
+        boolean nnpass=true;
+        for(int k=1;k<o.size()&& nnpass;k++){
+            nnpass=false;
+            for(int i=0;i<o.size()-k;i++){
+                if(o.get(i).compareTo(o.get(i+1))>0){
+                    swap(o,i,i+1);
+                    swap(x,i,i+1);
+                    swap(z,i,i+1);
+                    swap(v,i,i+1);
+                    nnpass=true;
+                }
+            }
+        }
+    }
+    
+    public <E extends Comparable<E>> void sortDescend(MyLinkedList<E> o,MyLinkedList<E> x,MyLinkedList<E> z,MyLinkedList<E> v){
+        boolean nnpass=true;
+        for(int k=1;k<o.size()&& nnpass;k++){
+            nnpass=false;
+            for(int i=0;i<o.size()-k;i++){
+                if(o.get(i).compareTo(o.get(i+1))<0){
+                    swap(o,i,i+1);
+                    swap(x,i,i+1);
+                    swap(z,i,i+1);
+                    swap(v,i,i+1);
+                    nnpass=true;
+                }
+            }
+        }
+    }
+    
+    public <E> void swap(MyLinkedList <E> o,int i,int j){
+        E temp=o.get(j);
+        o.remove(j);
+        o.add(j, o.get(i));
+        o.remove(i);
+        o.add(i, temp);
+    } 
